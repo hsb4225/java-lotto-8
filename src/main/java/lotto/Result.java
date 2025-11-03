@@ -6,9 +6,11 @@ public class Result {
 
     private final int[] counts = new int[Rank.values().length];
     private long totalPrize = 0L;
+    private final int purchaseMoney;
 
 
-    public Result(List<Lotto> lottoList, InputLotto lotto) {
+    public Result(List<Lotto> lottoList, InputLotto lotto, int purchaseMoney) {
+        this.purchaseMoney = purchaseMoney;
         for (Lotto l : lottoList) {
             match(l, lotto);
         }
@@ -43,4 +45,7 @@ public class Result {
         System.out.printf("총 상금: %,d원%n", totalPrize);
     }
 
+    public int getPurchaseMoney() {
+        return purchaseMoney;
+    }
 }
